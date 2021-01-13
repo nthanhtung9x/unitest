@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>UniTest BTVN TD</title>
+</head>
+<body>
+    <header>
+        UNIT TEST
+    </header>
+
+    <p>
+        <button id="btnOx" class="btn btn-success" type="button">
+            Ox Street
+        </button>
+    </p>
+    <p>
+        <button id="btnTd" class="btn btn-success" type="button">
+            TU DUY
+        </button>
+    </p>
+
+
+    <!-- tab ox street -->
+    <div class="w-75 m-auto" style="margin-top: 12px !important;" id="oxstreet">
+        <div class="w-100 m-auto d-flex align-items-center justify-content-center">
+            <div class="form-group m-2">
+                <label for="issue">Issue</label>
+                <input type="text" name="issue" id="issue" class="form-control" placeholder="">
+              </div>
+              <div class="form-group m-2">
+                  <label for="inputValue">Input</label>
+                  <input type="text" name="inputValue" id="inputValue" class="form-control" placeholder="">
+              </div>
+              <div class="form-group m-2">
+                  <label for="outputValue">Output</label>
+                  <input type="text" name="outputValue" id="outputValue" class="form-control" placeholder="">
+              </div>
+              <div class="form-group m-2 form-group-submit">
+                  <button class="btn btn-primary" onclick="handleSubmit(event)">Submit</button>
+            </div>
+        </div>
+
+        <div class="w-75 m-auto">
+            <div>
+                <div class="card card-body">
+                    <ul class="list-group" id="listOx">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <h4>Vấn đề</h4>
+                            <h4>Đầu vào</h4>
+                            <h4>Đầu ra</h4>
+                            <h4>Test</h4>
+                        </li>
+                    </ul>    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- tab tu duy -->
+    <div class="w-75 m-auto" style="margin-top: 12px !important;margin-bottom: 12px !important;" id="tuduy">
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi1" aria-expanded="false" aria-controls="buoi1">
+                Buổi 1
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi2" aria-expanded="false" aria-controls="buoi2">
+                Buổi 2
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi3" aria-expanded="false" aria-controls="buoi3">
+                Buổi 3
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi4" aria-expanded="false" aria-controls="buoi4">
+                Buổi 4
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi5" aria-expanded="false" aria-controls="buoi5">
+                Buổi 5
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi6" aria-expanded="false" aria-controls="buoi6">
+                Buổi 6
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi7" aria-expanded="false" aria-controls="buoi7">
+                Buổi 7
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi8" aria-expanded="false" aria-controls="buoi8">
+                Buổi 8
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi9" aria-expanded="false" aria-controls="buoi9">
+                Buổi 9
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi10" aria-expanded="false" aria-controls="buoi10">
+                Buổi 10
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi11" aria-expanded="false" aria-controls="buoi11">
+                Buổi 11
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buoi12" aria-expanded="false" aria-controls="buoi12">
+                Buổi 12
+            </button>
+        </p>
+    </div>
+    <div class="w-75 m-auto">
+        <div class="collapse" id="buoi1">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. tính tiền lương nhân viên</h4>
+                        <h4>final int LUONG_NGAY = 100000; int soNgayCong = 10;</h4>
+                        <h4>1000000</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Tính giá trị trung bình của 5 số này và xuất ra màn hình</h4>
+                        <h4>so1 = 1; so2 = 2; so3 = 3; so4 = 4; so5 = 5;</h4>
+                        <h4>3.0</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tính và xuất ra số tiền sau quy đổi VND</h4>
+                        <h4>final int TI_GIA = 23500; int tienUSD = 2;</h4>
+                        <h4>47000</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Tính và xuất ra diện tích, chu vi của HCN đó</h4>
+                        <h4>chieuDai = 2; chieuRong = 3</h4>
+                        <h4>Chuvi = 10; dientich = 6</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. Tính tổng 2 ký số của số vừa nhập</h4>
+                        <h4>so = 23;</h4>
+                        <h4>5</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>Case Study. Tính số lượng cây và tổng không gian sẽ được chiếm bởi những cây trưởng thành</h4>
+                        <h4>chieuDaiSan = 20; banKinhCay = 3; khoangCachCay = 2;</h4>
+                        <h4>soLuongCay = 3; tongDienTichCacCayTruongThanh = 235.5 </h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+
+        </div>
+        <div class="collapse" id="buoi2">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. Thay 3 số âm bằng trị tuyệt đối của nó</h4>
+                        <h4>a = 2; b = -5; c = -8</h4>
+                        <h4>a = 2; b = 5; c = 8</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Nhập vào số nguyên có 3 chữ số và in cách đọc nó</h4>
+                        <h4>so = 100</h4>
+                        <h4>Một trăm</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Nhập vào số nguyên có 3 chữ số và in cách đọc nó</h4>
+                        <h4>so = 104</h4>
+                        <h4>Một trăm linh tư</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Nhập vào số nguyên có 3 chữ số và in cách đọc nó</h4>
+                        <h4>so = 105</h4>
+                        <h4>Một trăm linh năm</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Nhập vào số nguyên có 3 chữ số và in cách đọc nó</h4>
+                        <h4>so = 110</h4>
+                        <h4>Một trăm mười</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Nhập vào số nguyên có 3 chữ số và in cách đọc nó</h4>
+                        <h4>so = 114</h4>
+                        <h4>Một trăm mười bốn</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Nhập vào số nguyên có 3 chữ số và in cách đọc nó</h4>
+                        <h4>so = 120</h4>
+                        <h4>Một trăm hai mươi</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Nhập vào số nguyên có 3 chữ số và in cách đọc nó</h4>
+                        <h4>so = 124</h4>
+                        <h4>Một trăm hai mươi tư</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Nhập vào số nguyên có 3 chữ số và in cách đọc nó</h4>
+                        <h4>so = 125</h4>
+                        <h4>Một trăm hai mươi lăm</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Nhập vào 3 cạnh của tam giác, cho biết là tam giác gì</h4>
+                        <h4>a = 2; b = 2; c = 1</h4>
+                        <h4>Tam giác cân</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Nhập vào 3 cạnh của tam giác, cho biết là tam giác gì</h4>
+                        <h4>a = 2; b = 2; c = 2</h4>
+                        <h4>Tam giác đều</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Nhập vào 3 cạnh của tam giác, cho biết là tam giác gì</h4>
+                        <h4>a = 3; b = 4; c = 5</h4>
+                        <h4>Tam giác vuông</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Nhập vào 3 cạnh của tam giác, cho biết là tam giác gì</h4>
+                        <h4>a = 3; b = 5; c = 6</h4>
+                        <h4>Tam giác thường</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. Nhập vào tháng năm, cho biết tháng đó có bao nhiêu ngày</h4>
+                        <h4>thang = 1; nam = 2020</h4>
+                        <h4>31 ngày</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. Nhập vào tháng năm, cho biết tháng đó có bao nhiêu ngày</h4>
+                        <h4>thang = 2; nam = 2020</h4>
+                        <h4>29 ngày</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. Nhập vào tháng năm, cho biết tháng đó có bao nhiêu ngày</h4>
+                        <h4>thang = 2; nam = 2019</h4>
+                        <h4>28 ngày</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. Nhập vào tháng năm, cho biết tháng đó có bao nhiêu ngày</h4>
+                        <h4>thang = 4; nam = 2020</h4>
+                        <h4>30 ngày</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>7. Nhập vào tên và năm sinh của 3 sinh viên, xuất ra tên và năm sinh của sinh viên trẻ nhất</h4>
+                        <h4>nam_SV1= 1995; nam_SV2 = 1996; nam_SV3 = 1998</h4>
+                        <h4>nam_SV3 = 1998</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>7. Nhập vào tên và năm sinh của 3 sinh viên, xuất ra tên và năm sinh của sinh viên trẻ nhất</h4>
+                        <h4>nam_SV1= 2000; nam_SV2 = 1996; nam_SV3 = 1998</h4>
+                        <h4>nam_SV3 = 2000</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>8. Nhập 3 số nguyên, xuất ra có bao nhiêu số chẵn, bao nhiêu số lẻ</h4>
+                        <h4>so1 = 1; so2 = 2; so3 = 3</h4>
+                        <h4>soChan = 1; soLe = 2</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>9. Nhập vào tên và năm sinh, giới tính của 3 cán bộ, xuất ra cán bộ Nam trẻ nhất</h4>
+                        <h4>gioiTinh_SV1 = Nam; nam_SV1= 1995; gioiTinh_SV2 = Nam; nam_SV2 = 1996; gioiTinh_SV3 = Nam; nam_SV3 = 1998</h4>
+                        <h4>SV3 = 1998</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>9. Nhập vào tên và năm sinh, giới tính của 3 cán bộ, xuất ra cán bộ Nam trẻ nhất</h4>
+                        <h4>gioiTinh_SV1 = Nam; nam_SV1= 1995; gioiTinh_SV2 = Nu; nam_SV2 = 1996; gioiTinh_SV3 = Nu; nam_SV3 = 1998</h4>
+                        <h4>SV1 = 1998</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>9. Nhập vào tên và năm sinh, giới tính của 3 cán bộ, xuất ra cán bộ Nam trẻ nhất</h4>
+                        <h4>gioiTinh_SV1 = Nu; nam_SV1= 1995; gioiTinh_SV2 = Nu; nam_SV2 = 1996; gioiTinh_SV3 = Nu; nam_SV3 = 1998</h4>
+                        <h4>Không có cán bộ nam nào</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>10. Nhập vào tọa độ nhà của 3 sinh viên, cho biết tọa độ của trường, xuất ra tên sinh viên ở xa trường đại học nhất</h4>
+                        <h4>toaDoX_SV1 = 1; toaDoY_SV1 = 1; toaDoX_SV2 = 2; toaDoY_SV2 = 3; toaDoX_SV3 = 4; toaDoY_SV3 = 5;toaDoX_Truong = 0; toaDoX_Truong = 0</h4>
+                        <h4>SV3</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>CaseStudy. tính số sơn cần để sơn lại một căn phòng. Người dùng nhập vào chiều dài, chiều rộng, chiều cao, số cánh cửa, số cửa sổ và lượng sơn cần để bao phủ (m2/lít)</h4>
+                        <h4>daiPhong = 10; rongPhong = 6; caoPhong = 5; rongCuaChinh = 1; caoCuaChinh = 2; soCuaChinh = 2; rongCuaSo = 2; caoCuaSo = 1; soCuaSo = 2; tieuHaoTrungBinh = 4</h4>
+                        <h4>
+                            Lượng sơn cần dùng để sơn tường phòng là: 608.0
+                            Lượng sơn cần dùng để sơn trần nhà là: 240.0
+                        </h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        <div class="collapse" id="buoi3">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. Quản lý tuyển sinh</h4>
+                        <h4>diemChuan = 24; mon1 = 8; mon2 = 8; mon3 = 0</h4>
+                        <h4>Có điểm liệt nên rớt</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. Quản lý tuyển sinh</h4>
+                        <h4>diemChuan = 24; mon1 = 8; mon2 = 8; mon3 = 8; khuVuc = X; doiTuong = 0</h4>
+                        <h4>24 (Đậu)</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. Quản lý tuyển sinh</h4>
+                        <h4>diemChuan = 24; mon1 = 8; mon2 = 8; mon3 = 7; khuVuc = X; doiTuong = 0</h4>
+                        <h4>23 (Rớt)</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. Quản lý tuyển sinh</h4>
+                        <h4>diemChuan = 24; mon1 = 8; mon2 = 8; mon3 = 7; khuVuc = A; doiTuong = 0</h4>
+                        <h4>25 (Đậu)</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Tính thuế thu nhập cá nhân</h4>
+                        <h4>hoTen = tung; tongThuNhap1Nam = 60; soNguoiPhuThuoc = 0;</h4>
+                        <h4>2.8000000000000003</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Tính thuế thu nhập cá nhân</h4>
+                        <h4>hoTen = tung; tongThuNhap1Nam = 60; soNguoiPhuThuoc = 1;</h4>
+                        <h4>2.72</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Tính thuế thu nhập cá nhân</h4>
+                        <h4>hoTen = tung; tongThuNhap1Nam = 120; soNguoiPhuThuoc = 0;</h4>
+                        <h4>8.600000000000001</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Tính thuế thu nhập cá nhân</h4>
+                        <h4>hoTen = tung; tongThuNhap1Nam = 216; soNguoiPhuThuoc = 0;</h4>
+                        <h4>22.799999999999997</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Tính thuế thu nhập cá nhân</h4>
+                        <h4>hoTen = tung; tongThuNhap1Nam = 384; soNguoiPhuThuoc = 0;</h4>
+                        <h4>56.2</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Tính thuế thu nhập cá nhân</h4>
+                        <h4>hoTen = tung; tongThuNhap1Nam = 624; soNguoiPhuThuoc = 0;</h4>
+                        <h4>116.0</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Tính thuế thu nhập cá nhân</h4>
+                        <h4>hoTen = tung; tongThuNhap1Nam = 960; soNguoiPhuThuoc = 0;</h4>
+                        <h4>216.6</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Tính thuế thu nhập cá nhân</h4>
+                        <h4>hoTen = tung; tongThuNhap1Nam = 1000; soNguoiPhuThuoc = 0;</h4>
+                        <h4>230.4</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tính tiền điện</h4>
+                        <h4>hoTen = tung; soKw = 40</h4>
+                        <h4>20000</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tính tiền điện</h4>
+                        <h4>hoTen = tung; soKw = 70</h4>
+                        <h4>38000</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tính tiền điện</h4>
+                        <h4>hoTen = tung; soKw = 150</h4>
+                        <h4>100000</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tính tiền điện</h4>
+                        <h4>hoTen = tung; soKw = 300</h4>
+                        <h4>252500</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tính tiền điện</h4>
+                        <h4>hoTen = tung; soKw = 400</h4>
+                        <h4>372500</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        <div class="collapse" id="buoi4">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. Tìm số nguyên dương n nhỏ nhất sao cho : 1 + 2 + … + n > 5000</h4>
+                        <h4></h4>
+                        <h4>100</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Tính TỔNG tất cả các số người dùng nhập (kể cả số âm).
+                            Nếu người dùng nhập số 0 thì kết thúc hành vi nhập, xuất kết
+                            quả</h4>
+                        <h4>lan1 = 1; lan2 = 2; lan3 = 3; lan4 = 0</h4>
+                        <h4>6</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tính TỔNG tất cả các số người dùng nhập (kể cả số âm).
+                            với điều kiện SỐ ĐÓ PHẢI LÀ SỐ CHẴN. Nếu người dùng nhập số 0 thì kết thúc hành vi nhập, xuất kết
+                            quả</h4>
+                        <h4>lan1 = 1; lan2 = 2; lan3 = 3; lan4 = 0</h4>
+                        <h4>2</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Tính và xuất ra giai thừa của số n do người dùng nhập</h4>
+                        <h4>n = 0</h4>
+                        <h4>1</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Tính và xuất ra giai thừa của số n do người dùng nhập</h4>
+                        <h4>n = 1</h4>
+                        <h4>1</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Tính và xuất ra giai thừa của số n do người dùng nhập</h4>
+                        <h4>n = 6</h4>
+                        <h4>720</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Tính và xuất ra giai thừa của số n do người dùng nhập</h4>
+                        <h4>n = -1</h4>
+                        <h4>Không hợp lệ</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. chương trình cho phép người dùng nhập vào 2 số. Chọn menu, xuất ra tổng, hiệu, tích, thương của 2 số</h4>
+                        <h4>so1 = 4; so2 = 5; tong2so</h4>
+                        <h4>9</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. chương trình cho phép người dùng nhập vào 2 số. Chọn menu, xuất ra tổng, hiệu, tích, thương của 2 số</h4>
+                        <h4>so1 = 4; so2 = 5; hieu2so</h4>
+                        <h4>-1</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. chương trình cho phép người dùng nhập vào 2 số. Chọn menu, xuất ra tổng, hiệu, tích, thương của 2 số</h4>
+                        <h4>so1 = 4; so2 = 5; tich2so</h4>
+                        <h4>20</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. chương trình cho phép người dùng nhập vào 2 số. Chọn menu, xuất ra tổng, hiệu, tích, thương của 2 số</h4>
+                        <h4>so1 = 4; so2 = 5; thuong2so</h4>
+                        <h4>0.8</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>6. cho phép máy tính phát sinh ngẫu nhiên một số từ
+                            1 đến 1000. Người dùng sẽ đoán và nhập, nếu đúng với kết quả
+                            của máy, game sẽ dừng.
+                            Ngược lại máy sẽ báo bạn đang nhập một số LỚN HƠN hoặc NHỎ
+                            HƠN số bí mật.
+                            Xuất thêm người chơi cần bao nhiêu lần đoán để tìm ra số bí
+                            ẩn.</h4>
+                        <h4></h4>
+                        <h4></h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>7. Trò chơi oẳn tù tì</h4>
+                        <h4></h4>
+                        <h4></h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        <div class="collapse" id="buoi5">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. Tổng các số dương  trong mảng</h4>
+                        <h4>int a[] = [1,2,3,4,5]</h4>
+                        <h4>15</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. Tổng các số dương  trong mảng</h4>
+                        <h4>int a[] = [1,2,-3,4,5]</h4>
+                        <h4>12</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. Tổng các số dương  trong mảng</h4>
+                        <h4>int a[] = [-1, -2, -3, -4,-5]</h4>
+                        <h4>Không có số dương trong mảng</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Đếm số dương trong mảng</h4>
+                        <h4>int a[] = [1,2,3,4,5]</h4>
+                        <h4>5</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Đếm số dương trong mảng</h4>
+                        <h4>int a[] = [1,2,3,-4,-5]</h4>
+                        <h4>3</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Đếm số dương trong mảng</h4>
+                        <h4>int a[] = [-1, -2, -3, -4, -5]</h4>
+                        <h4>Không có số dương trong mảng</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tìm số nhỏ nhất trong mảng</h4>
+                        <h4>int a[] = [1,2,3,4,5]</h4>
+                        <h4>1</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tìm số nhỏ nhất trong mảng</h4>
+                        <h4>int a[] = [1,2,3,4, -5]</h4>
+                        <h4>-5</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Tìm số dương nhỏ nhất trong mảng</h4>
+                        <h4>int a[] = [1,2,3]</h4>
+                        <h4>-1</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Tìm số dương nhỏ nhất trong mảng</h4>
+                        <h4>int a[] = [-1, -2, -3]</h4>
+                        <h4>Không có số dương trong mảng</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. Tìm số chẵn cuối cùng trong mảng, không có số chẵn thì trả về -1</h4>
+                        <h4>int a[] = [-1, -2, 2, -3]</h4>
+                        <h4>2</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. Tìm số chẵn cuối cùng trong mảng, không có số chẵn thì trả về -1</h4>
+                        <h4>int a[] = [-5, -3]</h4>
+                        <h4>-1</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>6. Đổi chỗ 2 giá trị trong mảng theo vị trí (Cho nhập vào 2 vị trí muốn đổi chỗ giá trị)</h4>
+                        <h4>int a[] = [1,2,3,4,5]; viTri_1 = 1; viTri_2 = 2</h4>
+                        <h4>[1,3,2,4,5]</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>7. Sắp xếp mảng theo thứ tự tăng dần</h4>
+                        <h4>int a[] = [5,4,3,2,1]</h4>
+                        <h4>[1,2,3,4,5]</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>8. Tìm số nguyên tố đầu tiên trong mảng. Nếu mảng không có số nguyên tố thì trả về – 1</h4>
+                        <h4>int a[] = [1,2,3,4,5]</h4>
+                        <h4>2</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>9. Nhập thêm 1 mảng số thực, tìm xem trong mảng có bao nhiêu số nguyên</h4>
+                        <h4>int a[] = [1.1,2,3.3,4.4,5.5]</h4>
+                        <h4>Mảng có 1 số nguyên</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>10. So sánh số lượng số dương và số lượng số âm xem số nào nhiều hơn.</h4>
+                        <h4>int a[] = [1,2,3,-4,-5]</h4>
+                        <h4>Mảng có nhiều số Dương hơn số Âm</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>10. So sánh số lượng số dương và số lượng số âm xem số nào nhiều hơn.</h4>
+                        <h4>int a[] = [1,2,-3,-4,-5]</h4>
+                        <h4>Mảng có nhiều số Âm hơn số Dương</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>10. So sánh số lượng số dương và số lượng số âm xem số nào nhiều hơn.</h4>
+                        <h4>int a[] = [1,2,-4,-5]</h4>
+                        <h4>Số Âm và số Dương trong mảng bằng nhau</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        <div class="collapse" id="buoi6">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1. Viết hàm liệt kê các giá trị trong mảng có dạng 3^k.Nếu mảng không có giá trị đó thì trả về 0</h4>
+                        <h4>int a[] = { 1,2,3,4,5 }</h4>
+                        <h4>{1, 3, 4, 5}</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>2. Cho mảng 1 chiều các số nguyên có nhiều hơn 2 giá trị. Liệt kê các cặp giá trị gần nhau nhất</h4>
+                        <h4>int a[] = { 390, 711, 889, 112, -148 }</h4>
+                        <h4>Các cặp giá trị gần nhau nhất là : arr[1]=711 & arr[2]=889; 
+                            Với khoảng cách gần nhau nhất là : 178</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tạo ngẫu nhiên mảng 1 chiều n chẵn phần tử có giá trị chauws trong đoạn [-100, 100]. Liệt kê các số chẵn trong mảng 1 chiều các số nguyên thuộc đoạn [x,y]</h4>
+                        <h4>int a[] = { 6, 74, 47, 30, 10 }; [x,y] = [0, 20]</h4>
+                        <h4>{ 6, 10 }</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>3. Tạo ngẫu nhiên mảng 1 chiều n chẵn phần tử có giá trị chauws trong đoạn [-100, 100]. Liệt kê các số chẵn trong mảng 1 chiều các số nguyên thuộc đoạn [x,y]</h4>
+                        <h4>int a[] = { 16, 74, 47, 30, 11 }; [x,y] = [0, 10]</h4>
+                        <h4>Không có số chẵn nào trong đoạn yêu cầu</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị trong đoạn [-1000,1000]. liệt kê các giá trị có toàn chữ số lẻ trong mảng</h4>
+                        <h4>int a[] = { 391, 16, 48 }</h4>
+                        <h4>{ 391 }</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>4. Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị trong đoạn [-1000,1000]. liệt kê các giá trị có toàn chữ số lẻ trong mảng</h4>
+                        <h4>int a[] = { 392, 16, 48 }</h4>
+                        <h4>Không có số nào thỏa mãn</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. Liệt kê các giá trị trong mảng 1 chiều các số nguyên có chữ số đầu tiên là số chẵn</h4>
+                        <h4>int a[] = { 1, 2, 3, 4, 21 }</h4>
+                        <h4>{ 2, 4, 21 }</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>5. Liệt kê các giá trị trong mảng 1 chiều các số nguyên có chữ số đầu tiên là số chẵn</h4>
+                        <h4>int a[] = { 1, 3, 11 }</h4>
+                        <h4>Không có số thỏa điều kiện</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>6. Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị trong đoạn [-1000,1000]. Tính tổng các giá trị dương trong mảng 1 chiều các số thực</h4>
+                        <h4>int a[] = { 221.17871, 281.95605, 637.59766, 911.5687, 637.59906 }</h4>
+                        <h4>Tổng các số dương là : 2052.3013</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>6. Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị trong đoạn [-1000,1000]. Tính tổng các giá trị dương trong mảng 1 chiều các số thực</h4>
+                        <h4>int a[] = { -221.17871, -281.95605, -637.59766, -911.5687, -637.59906 }</h4>
+                        <h4>Mảng không có số dương nào</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>7. Tính tổng các chữ số có chữ số hàng chục là 5 trong mảng 1 chiều các số nguyên</h4>
+                        <h4>int a[] = { 1, 2, 3, 50, 58 }</h4>
+                        <h4>Tổng các số có chữ số hàng chục là 5 là : 108.0</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>7. Tính tổng các chữ số có chữ số hàng chục là 5 trong mảng 1 chiều các số nguyên</h4>
+                        <h4>int a[] = { 1, 2, 3, 4, 5 }</h4>
+                        <h4>Mảng không có số nào thỏa yêu cầu</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>8. Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị chứa trong đoạn [-1000,1000]. Tính tổng các giá trị lớn hơn trị tuyệt đối của giá trị đứng liền sau nó trong mảng 1 chiều các số thực</h4>
+                        <h4>int a[] = { 523, -52, 889, 92, -134 }</h4>
+                        <h4>Tổng các giá trị lớn hơn giá trị sau nó là : 1412.0</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>8. Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị chứa trong đoạn [-1000,1000]. Tính tổng các giá trị lớn hơn trị tuyệt đối của giá trị đứng liền sau nó trong mảng 1 chiều các số thực</h4>
+                        <h4>int a[] = { -311, -256, -937, -829, 43 }</h4>
+                        <h4>Mảng không có số nào thỏa yêu cầu</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>9.Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị chứa trong đoạn [-1000,1000]. Tính trung bình cộng các số nguyên tố trong mảng 1 chiều các số nguyên</h4>
+                        <h4>int a[] = { -963, 605, 904, 541, -117 }</h4>
+                        <h4>Trung bình cộng các số nguyên tố là : 541</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>9.Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị chứa trong đoạn [-1000,1000]. Tính trung bình cộng các số nguyên tố trong mảng 1 chiều các số nguyên</h4>
+                        <h4>int a[] = { 916, 964, 140, 867, 937 }</h4>
+                        <h4>Mảng không có số nào thỏa yêu cầu</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>10. Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị chứa trong đoạn [-1000, 1000]. Tính trung bình cộng các giá trị lớn hơn giá trị x do người dùng nhập vào trong mảng 1 chiều các số thực</h4>
+                        <h4>int a[] = { 768, 108, 384, 43, 890 }; x = 200</h4>
+                        <h4>Tổng các giá trị lớn hơn 200 là : 2042</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>10. Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị chứa trong đoạn [-1000, 1000]. Tính trung bình cộng các giá trị lớn hơn giá trị x do người dùng nhập vào trong mảng 1 chiều các số thực</h4>
+                        <h4>int a[] = { 768, 108, 384, 43, 890 }; x = 900</h4>
+                        <h4>Mảng không có số nào thỏa yêu cầu</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>11. Hãy xóa tất cả số lớn nhất trong mảng các số thực</h4>
+                        <h4>float[] arr = { 9.5f, 9.5f, 6, 8, 9.5f, 0, 7, 9.5f, 9.5f, 4 };</h4>
+                        <h4>{ 6.0, 8.0, 0.0, 7.0, 4.0 }</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>12. Hãy xóa tất cả số âm trong mảng</h4>
+                        <h4>float[] arr = { 6, 8, -9.5f, 0, -7, -9.5f, 4, -10, -10, 0 };</h4>
+                        <h4>{ 6.0, 8.0, 0.0, 4.0, 0.0 }</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>13. Hãy xóa tất cả số chẵn trong mảng</h4>
+                        <h4>float[] arr = { 6, 8, -9.5f, 0, -7, -9.5f, 4, -10, -10, 0 };</h4>
+                        <h4>{ -9.5, -7.0, -9.5 }</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>14. Hãy xóa tất cả số chính phương trong mảng</h4>
+                        <h4>int[] arr = { 1, 8, 9, 9, -7, 4, 121, -10, 0 };</h4>
+                        <h4>{ 8, 7, -10 }</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>15. Tạo ngẫu nhiên mảng 1 chiều n phần tử nguyên có giá trị trong đoạn [-100, 100] và xuất mảng. Hãy dịch phải xoay vòng mảng k lần, k nhập từ bàn phím</h4>
+                        <h4>int[] arr = { -85, 13, 93, -40, 29 };</h4>
+                        <h4>{ -40, 29, -85, 13, 93 }</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>16. Tạo mảng 1 chiều n phần tử ngyên có giá trị nhập từ bàn phím. Xuất phần tử xuất hiện nhiều nhất và ít nhất tìm thấy đầu tiên(loại trường hợp bằng nhau)</h4>
+                        <h4>int[] arr = { 1, 2, 2, 3, 4 };</h4>
+                        <h4>Số có số phần tử nhiều nhất xuất hiện đầu tiên là : arr[1]=2 với 2 lần; 
+                            Số có số phần tử ít nhất xuất hiện đầu tiên là : arr[0]=1 với 1 lần</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>17. Đảo ngược mảng ban đầu</h4>
+                        <h4>int[] arr = { 0, 1, 2, 3, 4, 5, 6, 7 };</h4>
+                        <h4>{ 7, 6, 5, 4, 3, 2, 1, 0 }</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>18. Viết chương trình thực hiện những yêu cầu sau: Tạo mảng 1 chiều phần tử nguyên có giá trị nhập từ bàn phím, tìm các phần tử có số lần xuất hiện là như nhau và nhiều nhất</h4>
+                        <h4>int[] arr = { 1, 2, 2, 3, 3 };</h4>
+                        <h4>Các phần tử xuất hiện nhiều nhất và như nhau là: arr[1]=2; arr[3]=3</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        <div class="collapse" id="buoi7">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1</h4>
+                        <h4>a = 20, b = 10</h4>
+                        <h4>30</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        <div class="collapse" id="buoi8">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1</h4>
+                        <h4>a = 20, b = 10</h4>
+                        <h4>30</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        <div class="collapse" id="buoi9">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1</h4>
+                        <h4>a = 20, b = 10</h4>
+                        <h4>30</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        <div class="collapse" id="buoi10">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1</h4>
+                        <h4>a = 20, b = 10</h4>
+                        <h4>30</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        <div class="collapse" id="buoi11">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1</h4>
+                        <h4>a = 20, b = 10</h4>
+                        <h4>30</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        <div class="collapse" id="buoi12">
+            <div class="card card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <h4>Bài</h4>
+                        <h4>Đầu vào</h4>
+                        <h4>Đầu ra</h4>
+                        <h4>Test</h4>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-between">
+                        <h4>1</h4>
+                        <h4>a = 20, b = 10</h4>
+                        <h4>30</h4>
+                        <i class="fa fa-check checkIcon" onclick="handleCheck(event)"></i>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>

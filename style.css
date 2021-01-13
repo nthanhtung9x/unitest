@@ -1,0 +1,95 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #F7F7F9;
+}
+
+header {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+h4 {
+    width: 33.3333%;
+    text-align: center;
+    margin: 0;
+    border: 1px solid grey;
+    padding: 8px;
+}
+
+i {
+    width: 33.3333%;
+    text-align: center;
+    margin: 0;
+    border: none;
+    padding: 8px;
+}
+i::before {
+    font-size: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 6px;
+}
+
+.trashIcon::before {
+    background-color: red;
+}
+
+button.btn {
+    font-size: 20px;
+}
+
+li.list-group-item   {
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.hidden {
+    display:none;
+}
+
+#oxstreet.activeShow {
+    display:block;
+}
+
+#tuduy.activeShow {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tuduy.activeShow p {
+    margin: 0 8px;
+}
+
+label {
+    font-size: 20px;
+}
+
+input {
+    font-size: 16px !important;
+}
+
+.form-group {
+    height: 70px;
+}
+
+.form-group-submit {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.checked {
+    text-decoration: line-through;
+    opacity: 0.2;
+}
