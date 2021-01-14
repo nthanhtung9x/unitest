@@ -27,7 +27,7 @@ function handleCheck(e) {
 
     ele.classList.forEach((item, index) => {
         if(item.indexOf('checkIcon') !== -1) {
-            ele.parentElement.parentElement.classList.toggle('checked');
+            ele.parentElement.classList.toggle('checked');
         } else if(item.indexOf('trashIcon') !== -1) {
             handleDelete(ele.parentElement.parentElement);
         }
@@ -85,7 +85,7 @@ function getDataOx() {
 
 function handleDelete(item) {
     removeLocalTodo(item);
-    item.remove();
+    item.target.parentElement.parentElement.remove();
 }
 
 function removeLocalTodo(todo) {
